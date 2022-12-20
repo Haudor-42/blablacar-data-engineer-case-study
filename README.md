@@ -7,7 +7,7 @@ I hope this will be relevant and look forward discussing it soon :)
 
 ### Prerequisites
 - Python 3
-- As the chosen DB solution is BigQuery in this example, this assumes you have access to GCP and can import a `keyfile.json` file in the `config/` directory.
+- As the chosen DB solution is BigQuery in this example, this assumes you have access to GCP and can import a `keyfile.json` file in the `python_script/config/` directory.
 
 ### Install dependencies
 - ```cd python_script```
@@ -50,15 +50,6 @@ Under the `/airflow_dag` folder, you will find:
 - `/custom_operator` that contains one custom operator `custom_clean_files_operator.py` which allows to delete the files processed during the ETL.
 
 The Airflow DAG implementation implies that we are using a Composer cluster (Airflow as a service) with embedded access to GCP and a back-end that relies on Google Cloud Storage.
-
-
-Under the `/data_modelisation` folder, you will find:
-
--  `analytic_data_model.pdf`: This is a data model made using [LucidChart](https://www.lucidchart.com) and aims at translating the given scenario in a data structure usable by data analysts & business analysts.
-
-- `analytic_data_model_documentation.md`: This is the centralisation of documentation concerning the analytic data model designed. It contains table description, relationships explanation, columns documentation added to partition / clustering informations.
-
-- `analytic_data_model_query_sample.md`: A set of query to demonstrate how the data could be consumed in this scenario.
 
 ## Destination table specification
 
@@ -142,3 +133,14 @@ Here are couple of ideas I couldn't implement by lack of time / in order to keep
 - Consider using Airflow's `SubDagOperator` to split the DAG into smaller sub-DAGs, each with its own set of tasks. This can make it easier to manage and troubleshoot the DAG, especially if it becomes large and complex. In this simple context this doesn't seem to be necessary but it is a great way to improve solutions.
 
 - In specific scenarios, we could use Airflow's `BaseOperator` and `PythonOperator` to build custom operators that encapsulate specific logic or functionality. This can make it easier to reuse code and abstract away complex details and therefore would be very interesting if this code has to be mutualized with other DAGs.
+
+
+## Regarding the data model exercice
+
+Under the `/data_modelisation` folder, you will find:
+
+-  `analytic_data_model.pdf`: This is a data model made using [LucidChart](https://www.lucidchart.com) and aims at translating the given scenario in a data structure usable by data analysts & business analysts.
+
+- `analytic_data_model_documentation.md`: This is the centralisation of documentation concerning the analytic data model designed. It contains table description, relationships explanation, columns documentation added to partition / clustering informations.
+
+- `analytic_data_model_query_sample.md`: A set of query to demonstrate how the data could be consumed in this scenario.
