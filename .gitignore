@@ -1,0 +1,9 @@
+# dotenv
+.env
+python_script/.env
+
+# mac
+.DS_Store
+
+# specific
+python_script/config/keyfile.json
